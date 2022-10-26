@@ -6,16 +6,16 @@ import { MessagesService } from './messages.service';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HeroService {
 
-construtor(private messagesService: MessagesService) {}
+constructor(private messagesService: MessagesService) {}
   
-
-
   getHeroes(): Observable<Hero[]> {
+
     const heroes = of(HEROES);
+    this.messagesService.add('HeroService: fetched heroes');
     return heroes;
   }
 }
